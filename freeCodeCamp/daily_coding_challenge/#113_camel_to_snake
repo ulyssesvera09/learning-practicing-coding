@@ -1,0 +1,21 @@
+function toSnake(camel) {
+  var snakeArr = [];
+  var currWord = '';
+  for (let i = 0; i < camel.length; i++) {
+    let ch = camel[i];
+    if ('A' <= ch && ch <= 'Z') {
+      if (currWord) {
+        snakeArr.push(currWord)
+      }
+      currWord = ch.toLowerCase();
+    } else {
+      currWord += ch;
+    }
+  }
+  snakeArr.push(currWord);
+  return snakeArr.join('_');
+}
+
+let camelCase = "helloWorld";
+var convert = toSnake(camelCase);
+console.log(convert)
